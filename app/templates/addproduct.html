@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+
+
+{% block content %}
+  <div>
+    <h2>Añadir Producto</h2>
+
+    <div>
+
+      <form action="" method="post">
+
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Precio</th>
+          </tr>
+          <tr>
+            <td>{{ render_field(form.name, class='input') }}</td>
+            <td>{{ render_field(form.desc, class='input') }}</td>
+            <td>{{ render_field(form.stock, class='input') }}</td>
+            <td>{{ render_field(form.price, class='input') }}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ form.submit }}</td>
+          </tr>
+        </table>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

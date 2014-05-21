@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>Catalogo Flask | Alberto Punter</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Web creada en Python usando Flask">
+  <meta name="author" content="Alberto Punter">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title"><a href="{{ url_for('login') }}">Catálogo</a></h1>
+        <nav class="menu">
+          <ul>
+            {% if 'admin' in session and session['admin'] == 1 %}
+            <li><a href="{{ url_for('addproduct') }}">Añadir producto</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('users') }}">Lista de usuarios</a></li>
+            {% if 'username' in session %}
+            <li class="exit"><em>{{ session['username'] }}</em> - <a href="{{ url_for('logout') }}">Salir</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+    </header>
+
+    <div class="body">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>

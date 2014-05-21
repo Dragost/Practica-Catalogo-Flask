@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block content %}
+
+  <form name="login-form" class="login-form" action="{{ url_for('login') }}" method="post">
+  
+    <div class="header">
+      <h1>Catálogo Login</h1>
+      <span>Entra al sistema de gestión poniendo tu nombre de usuario y contraseña.</span>
+    </div>
+  
+    <div class="content">
+  
+      {{ render_field(form.username, class='input username', placeholder='Usuario') }}
+      <div class="user-icon"></div>
+
+
+      {{ render_field(form.password, class='input password', placeholder='Contraseña') }}
+      <div class="pass-icon"></div>   
+    </div>
+
+    <div class="footer">
+      {{ render_field(form.submit, class="button") }}
+
+      <a href="{{ url_for('register') }}" class="register">Registrar</a>
+    </div>
+  
+  </form>
+
+
+{% endblock %}
